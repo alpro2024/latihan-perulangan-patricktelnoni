@@ -1,0 +1,72 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Nasi kuning
+      id: nasi-kuning
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Nasi kuning
+        setup-command: javac TugasSarapan.java
+        command: java TugasSarapan
+        input: '1'
+        expected-output: '70000'
+        comparison-method: exact
+        timeout: 10
+        max-score: 25
+    - name: Bubur Ayam
+      id: bubur-ayam
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Bubur Ayam
+        setup-command: javac TugasSarapan.java
+        command: java TugasSarapan
+        input: '22'
+        expected-output: '101325'
+        comparison-method: exact
+        timeout: 10
+        max-score: 25
+    - name: Lontong Kari
+      id: lontong-kari
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Lontong Kari
+        setup-command: javac TugasSarapan.java
+        command: java TugasSarapan
+        input: '3'
+        expected-output: '134200'
+        comparison-method: exact
+        timeout: 10
+        max-score: 25
+    - name: Kupat Tahu
+      id: kupat-tahu
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Kupat Tahu
+        setup-command: javac TugasSarapan.java
+        command: java TugasSarapan
+        input: '4'
+        expected-output: '82230'
+        comparison-method: exact
+        timeout: 10
+        max-score: 25
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        NASI-KUNING_RESULTS: "${{steps.nasi-kuning.outputs.result}}"
+        BUBUR-AYAM_RESULTS: "${{steps.bubur-ayam.outputs.result}}"
+        LONTONG-KARI_RESULTS: "${{steps.lontong-kari.outputs.result}}"
+        KUPAT-TAHU_RESULTS: "${{steps.kupat-tahu.outputs.result}}"
+      with:
+        runners: nasi-kuning,bubur-ayam,lontong-kari,kupat-tahu
