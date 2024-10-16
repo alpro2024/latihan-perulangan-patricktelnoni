@@ -32,7 +32,7 @@ jobs:
         test-name: Bubur Ayam
         setup-command: javac TugasSarapan.java
         command: java TugasSarapan
-        input: '22'
+        input: '2'
         expected-output: '101325'
         comparison-method: exact
         timeout: 10
