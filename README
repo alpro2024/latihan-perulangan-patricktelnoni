@@ -1,0 +1,13 @@
+Seorang mahasiswa bernama Labubu memiliki pilihan menu sarapan sebagai berikut:
+1. Nasi kuning 10000
+2. Bubur ayam 15000
+3. Lontong Kari 20000
+4. Kupat tahu 12000
+
+Labubu ingin menentukan menentukan menu sarapannya selama seminggu. Labubu hanya boleh makan 1 menu selama 1 minggu itu.
+Selama weekend, selalu diberikan diskon sebanyak 5% untuk produk dengan harga di atas 11000 
+dan 10% untuk produk di atas 15000
+
+Buatlah program java untuk menghitung total uang belanja sarapan yang didapatkan selama 1 minggu.
+Program akan meminta input dari Labubu untuk memilih menu sarapan.
+Output program berupa total biaya sarapan selama seminggu.
